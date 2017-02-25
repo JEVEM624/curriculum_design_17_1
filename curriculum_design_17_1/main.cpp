@@ -109,6 +109,7 @@ int main()
 		break;
 		case 5://ÍË³ö³ÌĞò
 			system("cls");
+			free(A);
 			return 0;
 			break;
 		default:
