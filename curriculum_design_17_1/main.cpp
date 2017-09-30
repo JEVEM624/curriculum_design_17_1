@@ -1,12 +1,20 @@
 //  Copyright (C) 2017  JEVEM624
-//This program is free software: you can redistribute it and or modify
-//it under the terms of the GNU General Public License as published by
-//the Free Software Foundation, either version 3 of the License
+//Licensed under the Apache License, Version 2.0 (the "License");
+//you may not use this file except in compliance with the License.
+//You may obtain a copy of the License at
+
+// http://www.apache.org/licenses/LICENSE-2.0
+
+//Unless required by applicable law or agreed to in writing, software
+//distributed under the License is distributed on an "AS IS" BASIS,
+//WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//See the License for the specific language governing permissions and
+//limitations under the License.
 #include<stdio.h>
 #include<stdlib.h>
 #include <time.h>
 #include<windows.h>
-struct student//¶¨Òåstudent½á¹¹Ìå±äÁ¿
+struct student//å®šä¹‰studentç»“æ„ä½“å˜é‡
 {
 	long id;
 	char name[20];
@@ -31,11 +39,11 @@ int seach_id(Linklist A);
 int seach_name(Linklist A);
 int main()
 {
-	Linklist A = (Linklist)malloc(sizeof(Student));//ÉêÇë½á¹¹Ìå×÷ÎªÍ·
+	Linklist A = (Linklist)malloc(sizeof(Student));//ç”³è¯·ç»“æ„ä½“ä½œä¸ºå¤´
 	A->next = NULL;
-	load(A);//¼ÓÔØÎÄ¼ş
+	load(A);//åŠ è½½æ–‡ä»¶
 	int menu_select, sec_menu_select = 0;
-	int day, month, year;//»ñÈ¡ÏµÍ³Ê±¼ä´æÈë±äÁ¿ÖĞ
+	int day, month, year;//è·å–ç³»ç»Ÿæ—¶é—´å­˜å…¥å˜é‡ä¸­
 	struct tm *ptr;
 	time_t it;
 	it = time(NULL);
@@ -48,43 +56,43 @@ int main()
 	{
 		system("mode con cols=85 lines=30  ");
 		system("cls");
-		printf("»¶Ó­Ê¹ÓÃÑ§ÉúĞÅÏ¢¹ÜÀíÏµÍ³\n\n");
-		printf("**********²Ëµ¥**********\n");
-		printf("*   1.Ñ§ÉúĞÅÏ¢Â¼Èë     *\n");
-		printf("*   2.Ñ§ÉúĞÅÏ¢ĞŞ¸Ä     *\n");
-		printf("*   3.Ñ§ÉúĞÅÏ¢ä¯ÀÀ     *\n");
-		printf("*   4.Ñ§ÉúĞÅÏ¢²éÑ¯     *\n");
-		printf("*   5.ÍË³ö             *\n");
+		printf("æ¬¢è¿ä½¿ç”¨å­¦ç”Ÿä¿¡æ¯ç®¡ç†ç³»ç»Ÿ\n\n");
+		printf("**********èœå•**********\n");
+		printf("*   1.å­¦ç”Ÿä¿¡æ¯å½•å…¥     *\n");
+		printf("*   2.å­¦ç”Ÿä¿¡æ¯ä¿®æ”¹     *\n");
+		printf("*   3.å­¦ç”Ÿä¿¡æ¯æµè§ˆ     *\n");
+		printf("*   4.å­¦ç”Ÿä¿¡æ¯æŸ¥è¯¢     *\n");
+		printf("*   5.é€€å‡º             *\n");
 		printf("************************\n");
-		printf("ÇëÑ¡Ôñ£º");
+		printf("è¯·é€‰æ‹©ï¼š");
 		scanf("%d", &menu_select);
 		switch (menu_select)
 		{
-		case 1://½øÈëÂ¼ÈëÄ£¿é
+		case 1://è¿›å…¥å½•å…¥æ¨¡å—
 			system("cls");
 			input(A);
 			save(A);
 			break;
-		case 2://½øÈëĞŞ¸ÄÄ£¿é
+		case 2://è¿›å…¥ä¿®æ”¹æ¨¡å—
 			system("cls");
 			edit(A);
 			save(A);
 			break;
-		case 3://½øÈëä¯ÀÀÄ£¿é
+		case 3://è¿›å…¥æµè§ˆæ¨¡å—
 			system("cls");
 			output(A);
 			break;
-		case 4://½øÈë²éÑ¯Ä£¿é
+		case 4://è¿›å…¥æŸ¥è¯¢æ¨¡å—
 		{
 			while (1)
 			{
 				system("cls");
-				printf("»¶Ó­Ê¹ÓÃÑ§ÉúĞÅÏ¢¹ÜÀíÏµÍ³\n\n");
-				printf("**********²Ëµ¥**********\n");
-				printf("*   1.°´Ñ§ºÅ²éÑ¯     *\n");
-				printf("*   2.°´ĞÕÃû²éÑ¯     *\n");
-				printf("*   0.ÍË³ö           *\n");
-				printf("ÇëÑ¡Ôñ£º");
+				printf("æ¬¢è¿ä½¿ç”¨å­¦ç”Ÿä¿¡æ¯ç®¡ç†ç³»ç»Ÿ\n\n");
+				printf("**********èœå•**********\n");
+				printf("*   1.æŒ‰å­¦å·æŸ¥è¯¢     *\n");
+				printf("*   2.æŒ‰å§“åæŸ¥è¯¢     *\n");
+				printf("*   0.é€€å‡º           *\n");
+				printf("è¯·é€‰æ‹©ï¼š");
 				scanf("%d", &sec_menu_select);
 				switch (sec_menu_select)
 				{
@@ -98,7 +106,7 @@ int main()
 					seach_name(A);
 					break;
 				default:
-					printf("ÇëÊäÈëÕıÈ·Ñ¡Ïî");
+					printf("è¯·è¾“å…¥æ­£ç¡®é€‰é¡¹");
 					getchar();
 					getchar();
 
@@ -107,13 +115,13 @@ int main()
 			}
 		}
 		break;
-		case 5://ÍË³ö³ÌĞò
+		case 5://é€€å‡ºç¨‹åº
 			system("cls");
 			free(A);
 			return 0;
 			break;
 		default:
-			printf("ÇëÊäÈëÕıÈ·Ñ¡Ïî");
+			printf("è¯·è¾“å…¥æ­£ç¡®é€‰é¡¹");
 			getchar();
 			getchar();
 			break;
@@ -121,18 +129,18 @@ int main()
 	}
 	return 0;
 }
-int load(Linklist A)//¼ÓÔØ³ÌĞòµ±Ç°Ä¿Â¼ÏÂÊı¾İÎÄ¼ş
+int load(Linklist A)//åŠ è½½ç¨‹åºå½“å‰ç›®å½•ä¸‹æ•°æ®æ–‡ä»¶
 {
 	FILE *fp;
 	long id;
-	if (fp = fopen("data.txt", "r"), fp == NULL) //ÈôÎÄ¼ş²»´æÔÚÔòĞÂ½¨Ò»¸ö
+	if (fp = fopen("data.txt", "r"), fp == NULL) //è‹¥æ–‡ä»¶ä¸å­˜åœ¨åˆ™æ–°å»ºä¸€ä¸ª
 	{
 		FILE *fp = fopen("data.txt", "w");
 		return 0;
 	}
-	while (fscanf(fp, "%ld", &id) != EOF)//µ±³É¹¦¶ÁÈëÒ»¸öÕûÊı
+	while (fscanf(fp, "%ld", &id) != EOF)//å½“æˆåŠŸè¯»å…¥ä¸€ä¸ªæ•´æ•°
 	{
-		//Îªµ±Ç°ÕûÊı½¨Á¢½áµãs
+		//ä¸ºå½“å‰æ•´æ•°å»ºç«‹ç»“ç‚¹s
 		Linklist s;
 		s = (Linklist)malloc(sizeof(Student));
 
@@ -146,11 +154,11 @@ int load(Linklist A)//¼ÓÔØ³ÌĞòµ±Ç°Ä¿Â¼ÏÂÊı¾İÎÄ¼ş
 int save(Linklist A)
 {
 	FILE *fp;
-	Linklist p = A->next; //pÖ¸ÏòÊ×Ôª½áµã
+	Linklist p = A->next; //pæŒ‡å‘é¦–å…ƒç»“ç‚¹
 
 	fp = fopen("data.txt", "w");
 
-	while (p) //´¢´æÊı¾İµ½ÎÄ¼ş
+	while (p) //å‚¨å­˜æ•°æ®åˆ°æ–‡ä»¶
 	{
 		fprintf(fp, "%ld %s %d %s %d %d %d %s %s %s", p->id, p->name, p->age, p->gender, p->year, p->month, p->day, p->address, p->phone, p->email);
 		fprintf(fp, "\n");
@@ -176,17 +184,17 @@ int input(Linklist A)
 	while (ch == 'y')
 	{
 		system("cls");
-		Linklist s, panduan;//ÉêÇëĞÂ½Úµã
+		Linklist s, panduan;//ç”³è¯·æ–°èŠ‚ç‚¹
 		s = (Linklist)malloc(sizeof(Student));
 
-		while (1)//½øĞĞÂ¼Èë
+		while (1)//è¿›è¡Œå½•å…¥
 		{
-			printf("ÇëÊäÈëÑ§ºÅ:");
+			printf("è¯·è¾“å…¥å­¦å·:");
 			scanf("%ld", &s->id);
 			t = 0;
 			panduan = (Linklist)malloc(sizeof(Student));
 			panduan = A->next;
-			while (panduan)//ÅĞ¶ÏÑ§ºÅÊÇ·ñÖØ¸´
+			while (panduan)//åˆ¤æ–­å­¦å·æ˜¯å¦é‡å¤
 			{
 
 				if (s->id == panduan->id)
@@ -199,39 +207,39 @@ int input(Linklist A)
 			}
 			if (t != 0)
 			{
-				printf("Ñ§ºÅÖØ¸´£¬ÇëÖØĞÂÊäÈë\n");
+				printf("å­¦å·é‡å¤ï¼Œè¯·é‡æ–°è¾“å…¥\n");
 				continue;
 			}
 			else
 				break;
 		}
-		printf("ÇëÊäÈëĞÕÃû:");
+		printf("è¯·è¾“å…¥å§“å:");
 		scanf("%s", &s->name);
-		printf("ÇëÊäÈëĞÔ±ğ:");
+		printf("è¯·è¾“å…¥æ€§åˆ«:");
 		scanf("%s", &s->gender);
-		while (1)//ÅĞ¶ÏÈÕÆÚÊÇ·ñÕıÈ·
+		while (1)//åˆ¤æ–­æ—¥æœŸæ˜¯å¦æ­£ç¡®
 		{
-			printf("ÇëÊäÈë³öÉúÄêÔÂÈÕ:");
+			printf("è¯·è¾“å…¥å‡ºç”Ÿå¹´æœˆæ—¥:");
 			scanf("%d%d%d", &s->year, &s->month, &s->day);
 			if ((s->year > year) || (s->year == year&&s->month > month) || (s->year == year, s->month == month, s->day > day))
 			{
-				printf("ÇëÊäÈëÕıÈ·ÈÕÆÚ\n");
+				printf("è¯·è¾“å…¥æ­£ç¡®æ—¥æœŸ\n");
 				continue;
 			}
 			else
 				age(s, s->year, s->month, s->day);
 			break;
 		}
-		printf("µØÖ·:");
+		printf("åœ°å€:");
 		scanf("%s", &s->address);
-		printf("µç»°:");
+		printf("ç”µè¯:");
 		scanf("%s", &s->phone);
 		printf("E-mail:");
 		scanf("%s", &s->email);
 		s->next = NULL;
 		s->next = A->next;
 		A->next = s;
-		printf("ÊÇ·ñ¼ÌĞøÌí¼Ó(y/n):\n");
+		printf("æ˜¯å¦ç»§ç»­æ·»åŠ (y/n):\n");
 		scanf(" %c", &ch);
 		system("cls");
 	}
@@ -243,15 +251,15 @@ int output(Linklist A)
 	system("mode con cols=130 lines=50  ");
 	Linklist p;
 	int i = 0;
-	p = A->next; //pÖ¸ÏòÊ×Ôª½áµã
-	printf("Ñ§ºÅ      ĞÕÃû     ÄêÁä     ĞÔ±ğ          ³öÉúÄêÔÂ            µØÖ·                      µç»°               E-mail\n");
-	while (p) //µ±p·Ç¿Õ£¬Êä³öpÖĞµÄÊı¾İ
+	p = A->next; //pæŒ‡å‘é¦–å…ƒç»“ç‚¹
+	printf("å­¦å·      å§“å     å¹´é¾„     æ€§åˆ«          å‡ºç”Ÿå¹´æœˆ            åœ°å€                      ç”µè¯               E-mail\n");
+	while (p) //å½“péç©ºï¼Œè¾“å‡ºpä¸­çš„æ•°æ®
 	{
 
-		printf("%-10ld%-10s%-10d%-10s%dÄê%dÔÂ%dÈÕ   %-30s%-15s%-15s\n", p->id, p->name, p->age, p->gender, p->year, p->month, p->day, p->address, p->phone, p->email);
+		printf("%-10ld%-10s%-10d%-10s%då¹´%dæœˆ%dæ—¥   %-30s%-15s%-15s\n", p->id, p->name, p->age, p->gender, p->year, p->month, p->day, p->address, p->phone, p->email);
 		p = p->next;
 	}
-	printf("\n\n°´ÈÎÒâ¼ü·µ»ØÖ÷²Ëµ¥");
+	printf("\n\næŒ‰ä»»æ„é”®è¿”å›ä¸»èœå•");
 	getchar();
 	getchar();
 	system("cls");
@@ -260,18 +268,18 @@ int output(Linklist A)
 int seach_id(Linklist A)
 {
 	int id, t = 0;
-	printf("ÇëÊäÈëÑ§ºÅ");
+	printf("è¯·è¾“å…¥å­¦å·");
 	scanf("%ld", &id);
 	Linklist p;
 	p = (Linklist)malloc(sizeof(student));
 	p = A->next;
-	while (p)//¶ÔÊäÈëÑ§ºÅ½øĞĞËÑË÷£¬Èç¹û´æÔÚÔòÊä³öÊı¾İ
+	while (p)//å¯¹è¾“å…¥å­¦å·è¿›è¡Œæœç´¢ï¼Œå¦‚æœå­˜åœ¨åˆ™è¾“å‡ºæ•°æ®
 	{
 		if (p->id == id)
 		{
 			system("mode con cols=130 lines=50  ");
-			printf("Ñ§ºÅ      ĞÕÃû     ÄêÁä     ĞÔ±ğ          ³öÉúÄêÔÂ            µØÖ·                      µç»°               E-mail\n");
-			printf("%-10ld%-10s%-10d%-10s%dÄê%dÔÂ%dÈÕ   %-30s%-15s%-15s\n", p->id, p->name, p->age, p->gender, p->year, p->month, p->day, p->address, p->phone, p->email);
+			printf("å­¦å·      å§“å     å¹´é¾„     æ€§åˆ«          å‡ºç”Ÿå¹´æœˆ            åœ°å€                      ç”µè¯               E-mail\n");
+			printf("%-10ld%-10s%-10d%-10s%då¹´%dæœˆ%dæ—¥   %-30s%-15s%-15s\n", p->id, p->name, p->age, p->gender, p->year, p->month, p->day, p->address, p->phone, p->email);
 			t = t + 1;
 			getchar();
 			getchar();
@@ -284,7 +292,7 @@ int seach_id(Linklist A)
 	}
 	if (t == 0)
 	{
-		printf("Î´²éµ½Ñ§ºÅÎª%dµÄÑ§Éú", id);
+		printf("æœªæŸ¥åˆ°å­¦å·ä¸º%dçš„å­¦ç”Ÿ", id);
 		getchar();
 		getchar();
 	}
@@ -294,18 +302,18 @@ int seach_name(Linklist A)
 {
 	char name[20];
 	int t = 0;
-	printf("ÇëÊäÈëĞÕÃû");
+	printf("è¯·è¾“å…¥å§“å");
 	scanf("%s", &name);
 	Linklist p;
 	p = (Linklist)malloc(sizeof(student));
 	p = A->next;
-	while (p)//¶ÔÊäÈëÃû×Ö½øĞĞËÑË÷£¬Èç¹û´¦ÔÚÔòÊä³öÊı¾İ
+	while (p)//å¯¹è¾“å…¥åå­—è¿›è¡Œæœç´¢ï¼Œå¦‚æœå¤„åœ¨åˆ™è¾“å‡ºæ•°æ®
 	{
 		if (strcmp(p->name, name) == 0)
 		{
 			system("mode con cols=130 lines=50  ");
-			printf("Ñ§ºÅ      ĞÕÃû     ÄêÁä     ĞÔ±ğ          ³öÉúÄêÔÂ            µØÖ·                      µç»°               E-mail\n");
-			printf("%-10ld%-10s%-10d%-10s%dÄê%dÔÂ%dÈÕ   %-30s%-15s%-15s\n", p->id, p->name, p->age, p->gender, p->year, p->month, p->day, p->address, p->phone, p->email);
+			printf("å­¦å·      å§“å     å¹´é¾„     æ€§åˆ«          å‡ºç”Ÿå¹´æœˆ            åœ°å€                      ç”µè¯               E-mail\n");
+			printf("%-10ld%-10s%-10d%-10s%då¹´%dæœˆ%dæ—¥   %-30s%-15s%-15s\n", p->id, p->name, p->age, p->gender, p->year, p->month, p->day, p->address, p->phone, p->email);
 			getchar();
 			getchar();
 			t = t + 1;
@@ -318,7 +326,7 @@ int seach_name(Linklist A)
 	}
 	if (t == 0)
 	{
-		printf("Î´²éµ½ĞÕÃûÎª%sµÄÑ§Éú", name);
+		printf("æœªæŸ¥åˆ°å§“åä¸º%sçš„å­¦ç”Ÿ", name);
 		getchar();
 		getchar();
 	}
@@ -326,7 +334,7 @@ int seach_name(Linklist A)
 }
 int age(Linklist p, int y, int m, int d)
 {
-	int day, month, year;//»ñÈ¡ÏµÍ³Ê±¼ä
+	int day, month, year;//è·å–ç³»ç»Ÿæ—¶é—´
 	struct tm *ptr;
 	time_t it;
 	it = time(NULL);
@@ -335,7 +343,7 @@ int age(Linklist p, int y, int m, int d)
 	month = ptr->tm_mon + 1;
 	year = ptr->tm_year + 1900;
 
-	if (y != year)//¶ÔÄêÁä½øĞĞ¼ÆËã
+	if (y != year)//å¯¹å¹´é¾„è¿›è¡Œè®¡ç®—
 	{
 		p->age = year - y;
 	}
@@ -365,7 +373,7 @@ int age(Linklist p, int y, int m, int d)
 }
 int edit(Linklist A)
 {
-	int day, month, year, t = 0;//»ñÈ¡ÏµÍ³Ê±¼ä´æÈë±äÁ¿
+	int day, month, year, t = 0;//è·å–ç³»ç»Ÿæ—¶é—´å­˜å…¥å˜é‡
 	struct tm *ptr;
 	time_t it;
 	it = time(NULL);
@@ -374,27 +382,27 @@ int edit(Linklist A)
 	month = ptr->tm_mon + 1;
 	year = ptr->tm_year + 1900;
 	long i;
-	printf("ÇëÊäÈëÒªĞŞ¸ÄµÄÑ§ÉúÑ§ºÅ£º");
+	printf("è¯·è¾“å…¥è¦ä¿®æ”¹çš„å­¦ç”Ÿå­¦å·ï¼š");
 	scanf("%ld", &i);
 	Linklist p;
 	p = A->next;
-	while (p) //²éµ½Ñ§Éú
+	while (p) //æŸ¥åˆ°å­¦ç”Ÿ
 	{
 
-		if (p->id == i)//ÅĞ¶ÏÊäÈëµÄidÊÇ·ñÓëÊı¾İÖĞµÄÑ§ÉúidÏàÍ¬
+		if (p->id == i)//åˆ¤æ–­è¾“å…¥çš„idæ˜¯å¦ä¸æ•°æ®ä¸­çš„å­¦ç”Ÿidç›¸åŒ
 		{
 			t = t + 1;
 			int i;
 			char ch = 'y';
 
 
-			while (ch == 'y')//¿ÉÒÔ½øĞĞ¶à´ÎĞŞ¸Ä
+			while (ch == 'y')//å¯ä»¥è¿›è¡Œå¤šæ¬¡ä¿®æ”¹
 			{
 				system("cls");
 				system("mode con cols=130 lines=50  ");
-				printf("Ñ§ºÅ      ĞÕÃû     ÄêÁä     ĞÔ±ğ          ³öÉúÄêÔÂ            µØÖ·                      µç»°               E-mail\n");
-				printf("%-10ld%-10s%-10d%-10s%dÄê%dÔÂ%dÈÕ   %-30s%-15s%-15s\n", p->id, p->name, p->age, p->gender, p->year, p->month, p->day, p->address, p->phone, p->email);
-				printf("ÇëÑ¡ÔñĞŞ¸ÄÄÚÈİ1.Ñ§ºÅ  2.ĞÕÃû  3.ĞÔ±ğ  4.³öÉúÄêÔÂ  5.µØÖ·  6.µç»°  7.E-mail  8.ÍË³ö:\n");//¸ù¾İÓÃ»§ÊäÈëÑ¡ÔñĞŞ¸ÄÄÚÈİ
+				printf("å­¦å·      å§“å     å¹´é¾„     æ€§åˆ«          å‡ºç”Ÿå¹´æœˆ            åœ°å€                      ç”µè¯               E-mail\n");
+				printf("%-10ld%-10s%-10d%-10s%då¹´%dæœˆ%dæ—¥   %-30s%-15s%-15s\n", p->id, p->name, p->age, p->gender, p->year, p->month, p->day, p->address, p->phone, p->email);
+				printf("è¯·é€‰æ‹©ä¿®æ”¹å†…å®¹1.å­¦å·  2.å§“å  3.æ€§åˆ«  4.å‡ºç”Ÿå¹´æœˆ  5.åœ°å€  6.ç”µè¯  7.E-mail  8.é€€å‡º:\n");//æ ¹æ®ç”¨æˆ·è¾“å…¥é€‰æ‹©ä¿®æ”¹å†…å®¹
 
 				scanf("%d", &i);
 				switch (i)
@@ -404,12 +412,12 @@ int edit(Linklist A)
 					int t, temp_id;
 					while (1)
 					{
-						printf("ĞŞ¸ÄÑ§ºÅÎª:");
+						printf("ä¿®æ”¹å­¦å·ä¸º:");
 						scanf("%ld", &temp_id);
 						t = 0;
 						panduan = (Linklist)malloc(sizeof(Student));
 						panduan = A->next;
-						while (panduan)//ÅĞ¶ÏĞŞ¸ÄºóµÄÑ§ºÅÔÚÏµÍ³ÖĞÊÇ·ñ´æÔÚ
+						while (panduan)//åˆ¤æ–­ä¿®æ”¹åçš„å­¦å·åœ¨ç³»ç»Ÿä¸­æ˜¯å¦å­˜åœ¨
 						{
 
 							if (temp_id == panduan->id)
@@ -422,7 +430,7 @@ int edit(Linklist A)
 						}
 						if (t != 0)
 						{
-							printf("Ñ§ºÅÖØ¸´£¬ÇëÖØĞÂÊäÈë\n");
+							printf("å­¦å·é‡å¤ï¼Œè¯·é‡æ–°è¾“å…¥\n");
 							continue;
 						}
 						else
@@ -434,17 +442,17 @@ int edit(Linklist A)
 					}
 					break;
 				case 2:
-					printf("ĞŞ¸ÄĞÕÃûÎª");
+					printf("ä¿®æ”¹å§“åä¸º");
 					scanf("%s", &p->name);
 					break;
 				case 4:
-					while (1)//ÅĞ¶ÏÈÕÆÚÊÇ·ñÕıÈ·
+					while (1)//åˆ¤æ–­æ—¥æœŸæ˜¯å¦æ­£ç¡®
 					{
-						printf("ĞŞ¸Ä³öÉúÄêÔÂÈÕÎª:");
+						printf("ä¿®æ”¹å‡ºç”Ÿå¹´æœˆæ—¥ä¸º:");
 						scanf("%d%d%d", &p->year, &p->month, &p->day);
 						if ((p->year > year) || (p->year == year&&p->month > month) || (p->year == year, p->month == month, p->day > day))
 						{
-							printf("ÇëÊäÈëÕıÈ·ÈÕÆÚ\n");
+							printf("è¯·è¾“å…¥æ­£ç¡®æ—¥æœŸ\n");
 							continue;
 						}
 						else
@@ -455,19 +463,19 @@ int edit(Linklist A)
 					}
 					break;
 				case 3:
-					printf("ĞŞ¸ÄĞÔ±ğÎª£º");
+					printf("ä¿®æ”¹æ€§åˆ«ä¸ºï¼š");
 					scanf("%s", &p->gender);
 					break;
 				case 5:
-					printf("ĞŞ¸ÄµØÖ·Îª£º");
+					printf("ä¿®æ”¹åœ°å€ä¸ºï¼š");
 					scanf("%s", &p->address);
 					break;
 				case 6:
-					printf("ĞŞ¸Äµç»°Îª£º");
+					printf("ä¿®æ”¹ç”µè¯ä¸ºï¼š");
 					scanf("%s", &p->phone);
 					break;
 				case 7:
-					printf("ĞŞ¸ÄEmailÎª");
+					printf("ä¿®æ”¹Emailä¸º");
 					scanf("%s", &p->email);
 					break;
 				case 0:
@@ -475,20 +483,20 @@ int edit(Linklist A)
 				}
 				if (i != 8)
 				{
-					printf("ÊÇ·ñ¼ÌĞøĞŞ¸Ä(y/n):");
+					printf("æ˜¯å¦ç»§ç»­ä¿®æ”¹(y/n):");
 					scanf(" %c", &ch);
 				}
 				else
 					ch = 'n';
 			}
-			p = p->next;//Ö¸Ïòºó¼Ì½áµã
+			p = p->next;//æŒ‡å‘åç»§ç»“ç‚¹
 		}
 		else
-			p = p->next;//Ö¸Ïòºó¼Ì½áµã
+			p = p->next;//æŒ‡å‘åç»§ç»“ç‚¹
 	}
 	if (t == 0)
 	{
-		printf("Î´ÕÒµ½Ñ§ºÅÎª%ldµÄÑ§Éú", i);
+		printf("æœªæ‰¾åˆ°å­¦å·ä¸º%ldçš„å­¦ç”Ÿ", i);
 		getchar();
 		getchar();
 	}
